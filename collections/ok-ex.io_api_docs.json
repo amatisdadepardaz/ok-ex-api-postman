@@ -1,0 +1,982 @@
+{
+    "info": {
+        "_postman_id": "2d93ecb0-b774-4d8f-a428-56efe3c4c1bb",
+        "name": "Okex Api",
+        "description": "```\nDEBUG_MSG_CODES = {\n    '100': \"OK\",\n    '101': \"Json Handle Error\",\n    '102': \"Resource not found\",\n    '103': \"symbol is required\",\n    '104': \"required filed\",\n    '105': \"start time is invalid\",\n    '106': \"end time is invalid\",\n    '107': \"system error\",\n    \"108\": \"%s is required\",\n    \"109\": \"%s is invalid\",\n    \"110\": \"timestamp is expire\",\n    \"111\": \"ip not access in api key\",\n    \"112\": \"side is required\",\n    \"113\": \"%s not access in api key\",\n    '1000': \"در حال حاظر واریز کوین مورد نظر بسته می باشد\",\n    '1001': \"جهت تمدید آدرس باید حداقل ۱۵ دقیقه از زمان دریافت یا تمدید قبلی گذشته باشد\",\n    '1002': \"آدرس موجود نمی باشد یا منقصی شده است در صورت لزوم میتواند آدرس بسازید\",\n    '1003': \"آدرس موجود نمی باشد در صورت لزوم میتواند آدرس بسازد\",\n    '1100': \"مقدار برداشت شما نباید کمتر از 50 هزار تومان باشد\",\n    '1101': \"برداشت در حال حاظر بسته می باشد لطفا چند دقیقه دیگر تلاش کنید\",\n    '1102': \"حساب شما باید تایید شده باشد\",\n    '1103': \"برداشت از حساب برای شما بسته می باشد\",\n    '1104': \"کیف پول شما تا زمان معینی بسته می باشد \",\n    '1105': \"آدرس مورد نظر صحیح نمی باشد\",\n    '1106': \"در هر بار برداشت کوین ، امکان برداشت بیش از 100 میلیون میسر نیست!\",\n    '1107': \"شما تنها مجاز به ۳ درخواست برداشت در هر ۲۴ ساعت می باشید به مبلغ 300 میلیون تومان،  لطفا ۲۴ ساعت دیگر سعی کنید.\",\n    '1108': \"حداکثر برداشت از حساب شما نباید بیشتر از 100 میلیون تومان در روز باشد\",\n    '1109': \"موجودی حساب شما کافی نمی باشد\",\n    '1200': \"transfer error\",\n    '1201': \"transfer is close\",\n    '1202': \"wallet from or wallet to is invalid\",\n    '1300': \"خرید ارز مورد نظر بسته می باشد\",\n    '1301': \"کوین شناسایی نشد ،‌ لطفا مراحل خرید را از اول طی کنید\",\n    '1302': \"مقدار کمتر از حد مجاز می باشد\",\n    '1303': \"حساب شما بسته می باشد در صورت نیاز می توانید با پشتیبانی تماس بگیرید\",\n    '1304': \"خرید یا فروش از سایت برای شما بسته میباشد\",\n    '1305': \"لطفا ابتدا اطلاعات پایه خود را تایید نمایید\",\n    '1306': \"مشکل در خرید ارز مورد نظر لطفا چند دقیقه دیگر تلاش کنید\",\n    '1307': \"موجودی حساب شما کافی نمی باشد\",\n    '1308': \"قمت کمتر از حد مجاز\",\n    '1309': \"مشکل در خرید ارز مورد نظر لطفا چند دقیقه دیگر تلاش کنید\",\n    '1400': \"امکان ثبت ترید در حال حاظر امکان پذیر نمی باشد\",\n    '1401': \"ثبت ترید برای کوین مورد نظر امکان پذیر نمی باشد\",\n    '1402': \"مقدار اعشار وارد شده در مقدار معتبر نمی باشد\",\n    '1403': \"مقدار مورد نظر کمتر از حد مجاز می باشد\",\n    '1404': \"قیمت  نباید بیشتر از حد مجاز باشد \",\n    '1405': \"سفارش خود را در بازه معتبر ثبت نمایید\",\n    '1406': \"ایستگاه و قیمت نباید با هم برابر باشند\",\n    '1407': \"ایستگاه نباید از قیمت مارکت کوچکتر یا مساوی باشد\",\n    '1408': \"ایستگاه نباید از قیمت شما بزرگتر باشد\",\n    '1409': \"ایستگاه نباید از قیمت مارکت بزرگتر یا مساوی باشد\",\n    '1410': \"ایستگاه نباید از قیمت شما کوچکتر باشد\",\n    '1411': \"مشکل در ثبت معامله دوباره اقدام نمایید\",\n    '1412': \"معامله مناسب برای شما یافت نشد\",\n    '1413': \"امکان ثبت معامله برای شما بسته می باشد\",\n    '1414': \"در حال حاظر امکان لغو معامله میسر نمی باشد\",\n    '1415': \"معامله یافت نشد\",\n    '1416': \"لغو معامله برای این مارکت بسته میباشد\",\n    '1417': \"شماره معامله وارد شده صحیح نمی باشد\",\n    '1418': \"سفارش لغو نشد لطفا دوباره اقدام نمایید\",\n    '1419': \"تعداد سفارش های باز شده بیش از حد مجاز می باشد\",\n    '1420': \"مبلغ سفارش باید بیشتر از حداقل مقدار موجود باشد\",\n    '1421': \"پارامتر مقدار یا قیمت اشتباه می باشد\",\n    '1422': \"سفارش لغو نشد ، سفارش از قبل کامل شده\",\n    '1423': \"سفارش لغو نشد ، سفارش از قبل لغو شده می باشد\",\n    '1424': \"مقدار فعلی بیش از حد مجاز می باشد لطفا مقدار خود را کاهش دهید\",\n    '500': \"system is busy\",\n}\n\n```",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Wallet",
+            "item": [
+                {
+                    "name": "Wallet List",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "x-timestamp",
+                                "value": "{{timestamp}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-api-key",
+                                "value": "{{api_key}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-signature",
+                                "value": "{{signature}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/oapi/v1/wallet",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "oapi",
+                                "v1",
+                                "wallet"
+                            ]
+                        }
+                    },
+                    "response": [
+
+                    ]
+                },
+                {
+                    "name": "deposit address",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "x-timestamp",
+                                "value": "{{timestamp}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-api-key",
+                                "value": "{{api_key}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-signature",
+                                "value": "{{signature}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"coin\": \"USDT\",\n    \"network\": \"TRC20\",\n    \"gen_addr\": false,\n    \"update_addr\": false\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{url}}/oapi/v1/wallet/deposit/address",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "oapi",
+                                "v1",
+                                "wallet",
+                                "deposit",
+                                "address"
+                            ]
+                        }
+                    },
+                    "response": [
+
+                    ]
+                },
+                {
+                    "name": "deposit history",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "x-timestamp",
+                                "value": "{{timestamp}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-api-key",
+                                "value": "{{api_key}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-signature",
+                                "value": "{{signature}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{url}}/oapi/v1/wallet/deposit/history",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "oapi",
+                                "v1",
+                                "wallet",
+                                "deposit",
+                                "history"
+                            ]
+                        }
+                    },
+                    "response": [
+
+                    ]
+                },
+                {
+                    "name": "withdrawal",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "x-timestamp",
+                                "value": "{{timestamp}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-api-key",
+                                "value": "{{api_key}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-signature",
+                                "value": "{{signature}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"coin\": \"BTC\",\n    \"amount\": \"0.001\",\n    \"to_address\": \"dsadsadsa\",\n    \"tag\": \"123123\",\n    \"network\": \"BTC\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{url}}/oapi/v1/wallet/withdrawal",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "oapi",
+                                "v1",
+                                "wallet",
+                                "withdrawal"
+                            ]
+                        }
+                    },
+                    "response": [
+
+                    ]
+                },
+                {
+                    "name": "withdrawal history",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "x-timestamp",
+                                "value": "{{timestamp}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-api-key",
+                                "value": "{{api_key}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-signature",
+                                "value": "{{signature}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{url}}/oapi/v1/wallet/withdrawal/history",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "oapi",
+                                "v1",
+                                "wallet",
+                                "withdrawal",
+                                "history"
+                            ]
+                        }
+                    },
+                    "response": [
+
+                    ]
+                },
+                {
+                    "name": "transfer",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "x-timestamp",
+                                "value": "{{timestamp}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-api-key",
+                                "value": "{{api_key}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-signature",
+                                "value": "{{signature}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"coin\": \"USDT\",\n    \"amount\": \"0.001\",\n    \"wallet_from\": \"OTC\",\n    \"wallet_to\": \"TRADE\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{url}}/oapi/v1/wallet/transfer",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "oapi",
+                                "v1",
+                                "wallet",
+                                "transfer"
+                            ]
+                        }
+                    },
+                    "response": [
+
+                    ]
+                },
+                {
+                    "name": "transfer/history",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "x-timestamp",
+                                "value": "{{timestamp}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-api-key",
+                                "value": "{{api_key}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-signature",
+                                "value": "{{signature}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{url}}/oapi/v1/wallet/transfer/history",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "oapi",
+                                "v1",
+                                "wallet",
+                                "transfer",
+                                "history"
+                            ]
+                        }
+                    },
+                    "response": [
+
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Market",
+            "item": [
+                {
+                    "name": "tickers",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+
+                        ],
+                        "url": {
+                            "raw": "{{url}}/oapi/v1/market/tickers",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "ok-ex",
+                                "io"
+                            ],
+                            "path": [
+                                "oapi",
+                                "v1",
+                                "market",
+                                "tickers"
+                            ]
+                        }
+                    },
+                    "response": [
+
+                    ]
+                },
+                {
+                    "name": "ticker",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+
+                        ],
+                        "url": {
+                            "raw": "{{url}}/oapi/v1/market/ticker?symbol=BTC-USDT",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "ok-ex",
+                                "io"
+                            ],
+                            "path": [
+                                "oapi",
+                                "v1",
+                                "market",
+                                "ticker"
+                            ],
+                            "query": [
+                                {
+                                    "key": "symbol",
+                                    "value": "BTC-USDT"
+                                }
+                            ]
+                        }
+                    },
+                    "response": [
+
+                    ]
+                },
+                {
+                    "name": "orderbook",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+
+                        ],
+                        "url": {
+                            "raw": "{{url}}/oapi/v1/market/orderbook?symbol=BTC-USDT",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "ok-ex",
+                                "io"
+                            ],
+                            "path": [
+                                "oapi",
+                                "v1",
+                                "market",
+                                "orderbook"
+                            ],
+                            "query": [
+                                {
+                                    "key": "symbol",
+                                    "value": "BTC-USDT"
+                                }
+                            ]
+                        }
+                    },
+                    "response": [
+
+                    ]
+                },
+                {
+                    "name": "trades",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+
+                        ],
+                        "url": {
+                            "raw": "{{url}}/oapi/v1/market/trades?symbol=BTC-USDT",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "ok-ex",
+                                "io"
+                            ],
+                            "path": [
+                                "oapi",
+                                "v1",
+                                "market",
+                                "trades"
+                            ],
+                            "query": [
+                                {
+                                    "key": "symbol",
+                                    "value": "BTC-USDT"
+                                }
+                            ]
+                        }
+                    },
+                    "response": [
+
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "OTC",
+            "item": [
+                {
+                    "name": "tickers",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+
+                        ],
+                        "url": {
+                            "raw": "{{url}}/oapi/v1/otc/tickers",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "oapi",
+                                "v1",
+                                "otc",
+                                "tickers"
+                            ]
+                        }
+                    },
+                    "response": [
+
+                    ]
+                },
+                {
+                    "name": "ticker",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+
+                        ],
+                        "url": {
+                            "raw": "{{url}}/oapi/v1/otc/ticker?asset=USDT",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "oapi",
+                                "v1",
+                                "otc",
+                                "ticker"
+                            ],
+                            "query": [
+                                {
+                                    "key": "asset",
+                                    "value": "USDT"
+                                }
+                            ]
+                        }
+                    },
+                    "response": [
+
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Trade",
+            "item": [
+                {
+                    "name": "otc",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "x-timestamp",
+                                "value": "{{timestamp}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-api-key",
+                                "value": "{{api_key}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-signature",
+                                "value": "{{signature}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"asset\": \"APT\",\n    \"amount\": \"10.2\",\n    \"side\": \"buy\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{url}}/oapi/v1/trade/otc",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "oapi",
+                                "v1",
+                                "trade",
+                                "otc"
+                            ]
+                        }
+                    },
+                    "response": [
+
+                    ]
+                },
+                {
+                    "name": "otc history",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "x-timestamp",
+                                "value": "{{timestamp}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-api-key",
+                                "value": "{{api_key}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-signature",
+                                "value": "{{signature}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{domain-main}}/oapi/v1/trade/otc/history",
+                            "host": [
+                                "{{domain-main}}"
+                            ],
+                            "path": [
+                                "oapi",
+                                "v1",
+                                "trade",
+                                "otc",
+                                "history"
+                            ]
+                        }
+                    },
+                    "response": [
+
+                    ]
+                },
+                {
+                    "name": "market",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "x-timestamp",
+                                "value": "{{timestamp}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-api-key",
+                                "value": "{{api_key}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-signature",
+                                "value": "{{signature}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"quantity\": \"100\",\n    \"symbol\": \"USDT-IRT\",\n    \"type\": \"LIMIT\",\n    \"side\": \"BUY\",\n    \"price\": \"35000\",\n    \"stop_price\": \"35000\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{url}}/oapi/v1/trade/market",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "oapi",
+                                "v1",
+                                "trade",
+                                "market"
+                            ]
+                        }
+                    },
+                    "response": [
+
+                    ]
+                },
+                {
+                    "name": "market cancel",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "x-timestamp",
+                                "value": "{{timestamp}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-api-key",
+                                "value": "{{api_key}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-signature",
+                                "value": "{{signature}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"order_id\": \"95\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{url}}/oapi/v1/trade/market/cancel",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "oapi",
+                                "v1",
+                                "trade",
+                                "market",
+                                "cancel"
+                            ]
+                        }
+                    },
+                    "response": [
+
+                    ]
+                },
+                {
+                    "name": "market history",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "x-timestamp",
+                                "value": "{{timestamp}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-api-key",
+                                "value": "{{api_key}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-signature",
+                                "value": "{{signature}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{domain-main}}/oapi/v1/trade/market/history?symbol=BABYDOGE-USDT",
+                            "host": [
+                                "{{domain-main}}"
+                            ],
+                            "path": [
+                                "oapi",
+                                "v1",
+                                "trade",
+                                "market",
+                                "history"
+                            ],
+                            "query": [
+                                {
+                                    "key": "symbol",
+                                    "value": "BABYDOGE-USDT"
+                                }
+                            ]
+                        }
+                    },
+                    "response": [
+
+                    ]
+                },
+                {
+                    "name": "market orderbook",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "x-timestamp",
+                                "value": "{{timestamp}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-api-key",
+                                "value": "{{api_key}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-signature",
+                                "value": "{{signature}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{url}}/oapi/v1/trade/market/orderbook",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "oapi",
+                                "v1",
+                                "trade",
+                                "market",
+                                "orderbook"
+                            ]
+                        }
+                    },
+                    "response": [
+
+                    ]
+                },
+                {
+                    "name": "market ills",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "x-timestamp",
+                                "value": "{{timestamp}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-api-key",
+                                "value": "{{api_key}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-signature",
+                                "value": "{{signature}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{url}}/oapi/v1/trade/market/fills?order_id=96",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "oapi",
+                                "v1",
+                                "trade",
+                                "market",
+                                "fills"
+                            ],
+                            "query": [
+                                {
+                                    "key": "order_id",
+                                    "value": "96"
+                                }
+                            ]
+                        }
+                    },
+                    "response": [
+
+                    ]
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "const ts  = Date.now();",
+                    "console.log(ts)",
+                    "pm.environment.set(\"timestamp\", ts);",
+                    "",
+                    "let paramsObject = {};",
+                    "",
+                    "const okex_api_secret = pm.environment.get(\"secret_key\");",
+                    "",
+                    "const parameters = pm.request.headers;",
+                    "",
+                    "console.log(pm.request, pm.request.method)",
+                    "parameters.map((param) => {",
+                    "    if (param.key != 'x-signature' && ",
+                    "        param.key != 'x-timestamp' && ",
+                    "        !is_empty(param.value) &&",
+                    "        !is_disabled(param.disabled)) {",
+                    "            paramsObject[param.key] = param.value;",
+                    "    }",
+                    "})",
+                    "        ",
+                    "if (okex_api_secret) {",
+                    "",
+                    "    let queryString = \"\";",
+                    "    let path = '/' + pm.request.url.path.join('/')",
+                    "",
+                    "",
+                    "    let signing_data;",
+                    "    ",
+                    "",
+                    "    if (pm.request.method == 'GET') {",
+                    "        queryString = pm.request.url.query.map((item) => {",
+                    "            return `${item.key}=${item.value}`;",
+                    "        }).join('&');",
+                    "        ",
+                    "        if (!is_empty(queryString)) {",
+                    "            path += '?' + queryString",
+                    "        }",
+                    "        signing_data = `${pm.request.method}\\n${path}\\n${ts}`",
+                    "        console.log(\"signing_data\", signing_data)",
+                    "    }",
+                    "    if (pm.request.method == 'POST') {",
+                    "        signing_data = `${pm.request.method}\\n${path}\\n${ts}`",
+                    "        queryString = pm.request.body.raw",
+                    "        console.log(signing_data,queryString);",
+                    "        signing_data = `${signing_data}\\n${btoa(queryString)}`",
+                    "        ",
+                    "    }",
+                    "",
+                    "    console.log(\"signing_data\", signing_data)",
+                    "    const signature = CryptoJS.HmacSHA256(signing_data , okex_api_secret).toString()",
+                    "     console.log(\"signature\", signature)",
+                    "    pm.environment.set(\"signature\", signature);",
+                    "}",
+                    "",
+                    "",
+                    "function is_disabled(str) {",
+                    "    return str == true;",
+                    "}",
+                    "",
+                    "function is_empty(str) {",
+                    "    if (typeof str == 'undefined' ||",
+                    "        !str || ",
+                    "        str.length === 0 || ",
+                    "        str === \"\" ||",
+                    "        !/[^\\s]/.test(str) ||",
+                    "        /^\\s*$/.test(str) ||",
+                    "        str.replace(/\\s/g,\"\") === \"\")",
+                    "    {",
+                    "        return true;",
+                    "    }",
+                    "    else",
+                    "    {",
+                    "        return false;",
+                    "    }",
+                    "}"
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ]
+}
