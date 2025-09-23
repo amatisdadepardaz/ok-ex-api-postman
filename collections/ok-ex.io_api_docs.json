@@ -332,46 +332,6 @@
 							"response": []
 						},
 						{
-							"name": "cancel all orders by order ides",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "x-timestamp",
-										"value": "{{timestamp}}",
-										"type": "text"
-									},
-									{
-										"key": "x-api-key",
-										"value": "{{api_key}}",
-										"type": "text"
-									},
-									{
-										"key": "x-signature",
-										"value": "{{signature}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"ides\": [123, 1234]\n}"
-								},
-								"url": {
-									"raw": "{{spot_base_url}}/hapi/v1/spot/cancel_batch",
-									"host": [
-										"{{spot_base_url}}"
-									],
-									"path": [
-										"hapi",
-										"v1",
-										"spot",
-										"cancel_batch"
-									]
-								}
-							},
-							"response": []
-						},
-						{
 							"name": "get open orders",
 							"request": {
 								"method": "GET",
@@ -525,59 +485,6 @@
 											"key": "symbol",
 											"value": "BTC-USDT"
 										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get wallet history",
-							"request": {
-								"method": "GET",
-								"header": []
-							},
-							"response": []
-						},
-						{
-							"name": "update order",
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "x-timestamp",
-										"value": "{{timestamp}}",
-										"type": "text"
-									},
-									{
-										"key": "x-api-key",
-										"value": "{{api_key}}",
-										"type": "text"
-									},
-									{
-										"key": "x-signature",
-										"value": "{{signature}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"orderId\": 140184993,\n    \"newPrice\": 20,\n    \"newQuantity\": 2\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{spot_base_url}}/hapi/v1/spot/order",
-									"host": [
-										"{{spot_base_url}}"
-									],
-									"path": [
-										"hapi",
-										"v1",
-										"spot",
-										"order"
 									]
 								}
 							},
@@ -876,7 +783,7 @@
 							"response": []
 						},
 						{
-							"name": "margin rate",
+							"name": "margin levels",
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -895,7 +802,7 @@
 							"response": []
 						},
 						{
-							"name": "margin rate by symbol",
+							"name": "margin level by symbol",
 							"request": {
 								"method": "GET",
 								"header": [],
